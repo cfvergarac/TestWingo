@@ -12,7 +12,7 @@ ${NINOS}            xpath=(//div[contains(@class,'plus')])[2]
 ${INFANTES}         xpath=(//div[contains(@class,'plus')])[3]
 
 #BOTON CONTINUAR
-${BtnCONTINUAR}     xpath=//div[@name='searchFlight']
+${BtnCONTINUAR}     xpath=//div[@class='btn-search bt-search']
 ${BtnINFANTES}      xpath=//button[@class='bt-wingo-blue-pop-up']
 
 ${LblPrecio}       xpath=//div[@class='price']
@@ -36,9 +36,9 @@ Asignar elementos Pagina principal
     set test variable    ${ChkTVUELO}
     ${SltDESDE}=  set variable     xpath=//div[@class='styledSelect styledSelectOrigen']
     set test variable    ${SltDESDE}
-    ${TxtORIGEN}=     Set Variable      id=_wingocomponentsibenew_INSTANCE_ctyl_inputOrigen
+    ${TxtORIGEN}=     Set Variable      id=inputOrigen
     set test variable    ${TxtORIGEN}
-    ${SltDESTINO}=    Set Variable      xpath=//input[@class='searchSelect searchSelectIbeD'][contains(@id,'inputDestino')]
+    ${SltDESTINO}=    Set Variable      id=inputDestino
     set test variable    ${SltDESTINO}
     ${CiuORIGEN}=     Set Variable      xpath=//li[contains(@data-cod,'XXX')]
     set test variable    ${CiuORIGEN}

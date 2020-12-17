@@ -56,7 +56,8 @@ Ingresar_lugares
     Input Text       ${TxtORIGEN}    ${ORIGEN}
     Click Javascript    ${CiuORIGEN}
     Input Text       ${SltDESTINO}   ${DESTINO}
-    Click Javascript    ${CiuDESTINO}
+    #Click Javascript    ${CiuDESTINO}
+    Click Element   id=comboDestino
     valida pop up rutas
     Sleep    1s
 
@@ -74,8 +75,8 @@ RoundTrip
     ${MESSALIDA}=          convert to string    ${MESSALIDA}
     ${MESSALIDA}=    	   Get From Dictionary  	${IDIOMAMES}  	${MESSALIDA}
 
-    ${ANOSIGUIENTE}=    Evaluate     $ANOPARTIDA == '2020' and $ANOPARTIDA == $ANOSALIDA
-    Run Keyword If    $ANOSIGUIENTE==False    Select From List By Label     ${SlcANOSALIDA}    ${ANOSALIDA}
+    #${ANOSIGUIENTE}=    Evaluate     $ANOPARTIDA == '2020' and $ANOPARTIDA == $ANOSALIDA
+    #Run Keyword If    $ANOSIGUIENTE==False    Select From List By Label     ${SlcANOSALIDA}    ${ANOSALIDA}
     #${DICIEMBRERT}=    Evaluate     ($MESSALIDA == 'Diciembre' and $MESSALIDA == $MESPARTIDA)
 
     #cambiadas
@@ -83,8 +84,14 @@ RoundTrip
     #Run Keyword If    $DICIEMBRERT==False    Select From List By Label     ${MESVUELTA}      ${MESSALIDA}
 
     #Select From List By Label     ${SlcANOSALIDA}    ${ANOSALIDA}
-    Scroll Element Into View     ${SlcANOSALIDA}
-    Select From List By Label     ${MESVUELTA}      ${MESSALIDA}
+    #Scroll Element Into View     ${SlcANOSALIDA}
+    #Select From List By Label     ${MESVUELTA}      ${MESSALIDA}
+
+    FOR    ${i}     IN RANGE    12
+                      ${FECHASELECVUELTAACTUAL}=    Get Text   xpath=(//div[@class='month-element'])[5]
+                      Exit For Loop If    '${FECHASELECVUELTAACTUAL}' == '${MESSALIDA}'
+                      Click Element    xpath=(//span[contains(.,'>')])[2]
+    END
 
 
     ${DIAREGRESO}=      Set Variable     ${FECHASALIDA.day}
@@ -92,6 +99,7 @@ RoundTrip
     ${DIAREGRESO}=      Evaluate    ${DIAREGRESO} + ${SUMA}
     ${DIAREGRESO}=      Convert To String    ${DIAREGRESO}
     ${DteREGRESO} =	    Replace String	  ${DteREGRESO}	   XXX	  ${DIAREGRESO}
+
     Click Javascript       ${DteREGRESO}
 
 Seleccionar_Fechas
@@ -111,18 +119,26 @@ Seleccionar_Fechas
     ${SUMA}=         	Get From Dictionary    ${SUMAFECHA}   	${MESPARTIDA}
     ${DIAPARTIDA}=      Evaluate    ${DIAPARTIDA} + ${SUMA}
 
-    Sleep    2s
+    #Sleep    2s
     #wait until element is visible   ${SltFECHAIDA}
     Click Javascript                  ${SltFECHAIDA}
     Click Javascript                  ${SltFECHAIDA}
     #debug
-    wait until element is visible   ${MESIDA}    10s
+    #wait until element is visible   ${MESIDA}    10s
+
+
+     FOR    ${i}     IN RANGE    12
+                  ${FECHASELECIDAACTUAL}=    Get Text   xpath=(//div[@class='month-element'])[1]
+                  Exit For Loop If    '${FECHASELECIDAACTUAL}' == '${MESPARTIDA}'
+                  Click Element    xpath=//span[@class='next']
+     END
+
 
     ${presentpr}=     Run Keyword And Return Status    Element Should Be Visible     id=_wingocomponentsibenew_INSTANCE_ctyl_alertIbe
     Run Keyword If    ${presentpr}    Click Element     id=_wingocomponentsibenew_INSTANCE_ctyl_modalSuccessIbe
 
-    Select From List By Label      ${MESIDA}     ${MESPARTIDA}
-    Select From List By Label      ${SlcANOPARTIDA}      ${ANOPARTIDA}
+    #Select From List By Label      ${MESIDA}     ${MESPARTIDA}
+    #Select From List By Label      ${SlcANOPARTIDA}      ${ANOPARTIDA}
     ${DIAPARTIDA}=      convert to string    ${DIAPARTIDA}
     ${DtePARTIDA} =	    Replace String	   ${DtePARTIDA}	   XXX	  ${DIAPARTIDA}
     Click Javascript     ${DtePARTIDA}

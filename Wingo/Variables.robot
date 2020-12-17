@@ -15,7 +15,7 @@ ${NOMBREAUT}     Pagos
 ${APELLIDOAUT}   Automatizacion
 
 #FECHAS CALENDARIO
-&{SUMAFECHA}     Enero=4    Febrero=5    Marzo=6     Abril=2   Mayo=4    Julio=2  Junio=0    Agosto=3    Septiembre=6    Octubre=3    Noviembre=6    Diciembre=1    January=4    February=5    March=6     April=2   May=4   July=2    June=0    September=6    October=3    November=6    December=1
+&{SUMAFECHA}     Enero=4    Febrero=5    Marzo=0     Abril=2   Mayo=4    Julio=2  Junio=0    Agosto=3    Septiembre=6    Octubre=3    Noviembre=6    Diciembre=1    January=4    February=5    March=6     April=2   May=4   July=2    June=0    September=6    October=3    November=6    December=1
 
 &{MESESES}         1=Enero    2=Febrero    3=Marzo    4=Abril    5=Mayo    6=Junio    7=Julio    8=Agosto    9=Septiembre   10=Octubre    11=Noviembre    12=Diciembre
 &{MESESEN}         1=January    2=February    3=March    4=April    5=May    6=June   7=July    8=August    9=September   10=October       11=November    12=December
