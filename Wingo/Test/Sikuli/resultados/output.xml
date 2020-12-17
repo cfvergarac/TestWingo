@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20200709 16:41:30.527" rpa="false">
+<suite id="s1" name="TC" source="D:\Automatizacion python\Wingo\Wingo\Test\Sikuli\TC.robot">
+<test id="s1-t1" name="CP_001">
+<kw name="Click" library="SikuliLibrary">
+<doc>Click</doc>
+<arguments>
+<arg>win.png</arg>
+</arguments>
+<msg timestamp="20200709 16:41:33.282" level="INFO">Params: [win.png]</msg>
+<msg timestamp="20200709 16:41:33.282" level="FAIL">java.lang.ExceptionInInitializerError: null</msg>
+<status status="FAIL" starttime="20200709 16:41:33.249" endtime="20200709 16:41:33.282"></status>
+</kw>
+<status status="FAIL" starttime="20200709 16:41:33.249" endtime="20200709 16:41:33.282" critical="yes">java.lang.ExceptionInInitializerError: null</status>
+</test>
+<status status="FAIL" starttime="20200709 16:41:30.529" endtime="20200709 16:41:33.290"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="TC">TC</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
